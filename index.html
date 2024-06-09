@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coffee Shop Analysis">
+  <meta name="keywords" content="coffee, data analysis, sales">
+  <title>Coffee Shop</title>
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="toggle">
+          <a href="#" class="toggle-btn"><img src="img/1.png" alt="Toggle Menu"></a>
+        </div>
+        <h1 class="brand"><span>Coffee</span> Shop.</h1>
+        <ul class="menu-container">
+          <li><a href="#Home" class="menu-item">Home</a></li>
+          <li><a href="#Analysis" class="menu-item">Analysis</a></li>
+          <li><a href="#About" class="menu-item">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Content Section -->
+  <main>
+    <section id="Home" class="page1">
+      <div class="c-container">
+        <div class="content-wrapper">
+          <div class="content">
+            <h1 class="title">Welcome to <span>Coffee</span> Shop Analysis</h1>
+            <p>Selamat datang di portal analisis data kami, tempat di mana setiap biji kopi bercerita tentang perjalanan
+              uniknya. Kami bangga mempersembahkan dataset penjualan kopi yang mendetail dari toko kopi kami, yang tidak
+              hanya mencerminkan kecintaan kami pada kopi tetapi juga komitmen kami terhadap kualitas dan kepuasan
+              pelanggan. Di sini, Anda akan menemukan data transaksi yang kaya, mulai dari pilihan biji kopi terbaik
+              hingga preferensi pelanggan yang beragam. Setiap angka dalam dataset ini mewakili cerita di balik
+              secangkir kopi yang sempurna - dari biji yang dipilih dengan hati-hati hingga senyum kepuasan pelanggan.
+              Mari jelajahi bersama dan temukan wawasan yang dapat membantu toko kopi di seluruh dunia tumbuh dan
+              berkembang.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALIS -->
+    <section id="Analysis" class="page2">
+      <h2>ANALISIS DATA <span>COFFEE</span> SHOP</h2>
+      <hr>
+      <!-- CHARD  -->
+      <section class="charts">
+        <div class="card">
+          <h6> TOTAL QUANTITY SOLD PACKAGED CHOCOLATE PER JAM </h6>
+          <canvas id="lineChart"></canvas>
+        </div>
+        <div class="card">
+          <h6> AVERAGE UNIT PRICE OF PACKAGED CHOCOLATE PER PRODUCT DETAIL </h6>
+          <canvas id="pieChart"></canvas>
+        </div>
+        <div class="card">
+          <h6> TOTAL QUANTITY SOLD PACKAGED CHOCOLATE PER DAY </h6>
+          <canvas id="barChart1"></canvas>
+        </div>
+        <div class="card">
+          <h6> DATA PENJUALAN </h6>
+          <div class="table-wrapper">
+            <table id="table-data" class="display">
+              <thead>
+                <tr>
+                  <th>Bulan Transaksi</th>
+                  <th>Lokasi Toko</th>
+                  <th>Kategori Produk</th>
+                  <th>Harga Rata-Rata</th>
+                  <th>Total Penjualan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Data will be inserted here by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="About" class="page3">
+        <div class="about">
+          <h2>About</h2>
+          <h5>Kami adalah Palembang tim 18 "COOFFE SHOP " yang terdiri dari sekelompok individu yang bersemangat untuk
+            menciptakan solusi inovatif dalam dunia pendidikan. Proyek kami dibuat untuk memenuhi kriteria kelulusan di
+            PT
+            Revolusi Citra Edukasi.
+
+            Dengan kerjasama yang erat dan dedikasi yang tinggi, kami telah berhasil merancang sebuah proyek yang kami
+            harapkan akan memberikan nilai tambah bagi dunia pendidikan. Kami berkomitmen untuk menciptakan dampak
+            positif
+            dan meningkatkan pengalaman belajar.
+
+            Terima kasih atas dukungan dari PT Revolusi Citra Edukasi dan semua pihak yang telah mendukung kami dalam
+            perjalanan ini. Kami berharap proyek kami dapat memberikan inspirasi dan kontribusi yang berarti dalam dunia
+            pendidikan.</h5>
+          <hr>
+        </div>
+        <div class="team" id="team">
+          <div class="center">
+            <h2>Our <span>Teams</span></h2>
+            <hr>
+          </div>
+          <div class="team-content">
+
+            <!-- Isi konten di dalam "about" -->
+            <div class="box-team">
+              <img src="Profil/Zeis.png" alt="">
+              <h3>Zeifur R.</h3>
+              <h5>Universitas Muhammadiyah Malang</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Danilaa.png" alt="">
+              <h3>Danila Fitria.</h3>
+              <h5>Universitas Islam Blitar</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Laylii.jpg" alt="">
+              <h3>Layli Oktaviani.</h3>
+              <h5>Universitas Jember</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Siti.png" alt="">
+              <h3>Siti Rahma.</h3>
+              <h5>Universitas Pendidikan Indonesia</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Rangga.jpg" alt="">
+              <h3>Rangga Dwi Saputra.</h3>
+              <h5>Universitas Maarif Hasyim Latif</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Fathiya.jpg" alt="">
+              <h3>Fathiya Rahma.</h3>
+              <h5>Universitas Islam Bandung</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Ainun.png" alt="">
+              <h3>Ainun Aziza.</h3>
+              <h5>Universitas Hasanudin</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Fathi.jpg" alt="">
+              <h3>M. Fathi.</h3>
+              <h5>Universitas Gunadarma</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Amalia.png" alt="">
+              <h3>Amalia Putri.</h3>
+              <h5>Universitas Lampung</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+
+            <div class="box-team">
+              <img src="Profil/Vanaa.png" alt="">
+              <h3>Ivana Rose.</h3>
+              <h5>Universitas Gunadarma</h5>
+              <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </div>
+            </div>
+          </div>
+      </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Palembang Team 18</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
