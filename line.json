@@ -1,0 +1,172 @@
+[
+    {
+      "Hours": 6,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 4
+    },
+    {
+      "Hours": 6,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 19
+    },
+    {
+      "Hours": 7,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 18
+    },
+    {
+      "Hours": 7,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 10
+    },
+    {
+      "Hours": 7,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 25
+    },
+    {
+      "Hours": 8,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 18
+    },
+    {
+      "Hours": 8,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 8
+    },
+    {
+      "Hours": 8,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 12
+    },
+    {
+      "Hours": 9,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 4
+    },
+    {
+      "Hours": 9,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 21
+    },
+    {
+      "Hours": 9,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 6
+    },
+    {
+      "Hours": 10,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 28
+    },
+    {
+      "Hours": 10,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 24
+    },
+    {
+      "Hours": 10,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 11
+    },
+    {
+      "Hours": 11,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 6
+    },
+    {
+      "Hours": 11,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 5
+    },
+    {
+      "Hours": 12,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 7
+    },
+    {
+      "Hours": 12,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 1
+    },
+    {
+      "Hours": 13,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 8
+    },
+    {
+      "Hours": 13,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 3
+    },
+    {
+      "Hours": 13,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 13
+    },
+    {
+      "Hours": 14,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 4
+    },
+    {
+      "Hours": 14,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 4
+    },
+    {
+      "Hours": 14,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 6
+    },
+    {
+      "Hours": 15,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 5
+    },
+    {
+      "Hours": 15,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 13
+    },
+    {
+      "Hours": 15,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 4
+    },
+    {
+      "Hours": 16,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 5
+    },
+    {
+      "Hours": 17,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 6
+    },
+    {
+      "Hours": 17,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 4
+    },
+    {
+      "Hours": 18,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 2
+    },
+    {
+      "Hours": 18,
+      "store_location": "Lower Manhattan",
+      "Total Quantity Sold": 2
+    },
+    {
+      "Hours": 19,
+      "store_location": "Astoria",
+      "Total Quantity Sold": 9
+    },
+    {
+      "Hours": 20,
+      "store_location": "Hell's Kitchen",
+      "Total Quantity Sold": 7
+    }
+  ]

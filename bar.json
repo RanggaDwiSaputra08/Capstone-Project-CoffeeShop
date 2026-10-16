@@ -1,0 +1,44 @@
+[
+    {
+      "Day of Week": "Monday",
+      "Astoria": 20,
+      "Hells Kitchen": 16,
+      "Lower Manhattan": 25
+    },
+    {
+      "Day of Week": "Tuesday",
+      "Astoria": 14,
+      "Hells Kitchen": 26,
+      "Lower Manhattan": 30
+    },
+    {
+      "Day of Week": "Wednesday",
+      "Astoria": 13,
+      "Hells Kitchen": 31,
+      "Lower Manhattan": 27
+    },
+    {
+      "Day of Week": "Thursday",
+      "Astoria": 19,
+      "Hells Kitchen": 33,
+      "Lower Manhattan": 25
+    },
+    {
+      "Day of Week": "Friday",
+      "Astoria": 12,
+      "Hells Kitchen": 29,
+      "Lower Manhattan": 25
+    },
+    {
+      "Day of Week": "Saturday",
+      "Astoria": 14,
+      "Hells Kitchen": 26,
+      "Lower Manhattan": 22
+    },
+    {
+      "Day of Week": "Sunday",
+      "Astoria": 18,
+      "Hells Kitchen": 36,
+      "Lower Manhattan": 26
+    }
+  ]
