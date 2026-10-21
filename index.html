@@ -53,6 +53,15 @@
     </div>
 
     <div class="header-actions">
+      <!-- Mobile Filter Trigger in Header -->
+      <button id="btn-header-filter" class="header-btn-filter" aria-label="Buka Filter Toko dan Periode" title="Buka Filter">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+        </svg>
+        <span>Filter</span>
+        <span class="filter-indicator-dot"></span>
+      </button>
+
       <div class="header-chip header-chip-period">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -178,6 +187,16 @@
               <option value="6">Juni</option>
             </select>
           </div>
+
+          <!-- Quick Action in Drawer -->
+          <div class="sidebar-apply-wrap">
+            <button id="btn-sidebar-apply" class="sidebar-apply-btn" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tutup & Terapkan Filter</span>
+            </button>
+          </div>
         </div>
 
         <!-- Key Metrics Section -->
@@ -258,6 +277,35 @@
 
     <!-- ===== MAIN CONTENT AREA ===== -->
     <main id="main-content">
+
+      <!-- Mobile Quick Filter Status Bar (Interactive Chips) -->
+      <div class="mobile-quick-filter-bar" id="mobile-quick-filter-bar">
+        <div class="quick-filter-header">
+          <div class="quick-filter-title-wrap">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
+            <span class="quick-filter-label">Filter Aktif:</span>
+          </div>
+          <button id="btn-quick-filter-edit" class="quick-filter-edit-btn" type="button" aria-label="Ubah Filter">
+            Ubah
+          </button>
+        </div>
+        <div class="quick-filter-chips">
+          <button class="filter-chip" id="chip-store" type="button" title="Ubah Filter Toko">
+            <span class="chip-dot dot-green"></span>
+            <span class="chip-text" id="chip-store-text">Astoria</span>
+          </button>
+          <button class="filter-chip" id="chip-category" type="button" title="Ubah Kategori Produk">
+            <span class="chip-dot dot-orange"></span>
+            <span class="chip-text" id="chip-category-text">Packaged Choc</span>
+          </button>
+          <button class="filter-chip" id="chip-month" type="button" title="Ubah Periode Bulan">
+            <span class="chip-dot dot-blue"></span>
+            <span class="chip-text" id="chip-month-text">Semua Bulan</span>
+          </button>
+        </div>
+      </div>
 
       <!-- Notice Banner for Category info -->
       <div id="category-notice-banner" class="category-notice-banner" style="display: none;">
@@ -495,6 +543,119 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <!-- Mobile Insight Cards View (Modern Responsive Executive Briefing) -->
+          <div class="mobile-insights-list" id="mobile-insights-list">
+            <!-- Card 1 -->
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <span class="insight-num">#1</span>
+                <span class="finding-tag finding-critical">Kritis</span>
+                <span class="insight-finding-title">Penjualan Harian Fluktuatif</span>
+              </div>
+              <div class="insight-finding-detail">
+                Penjualan harian packaged chocolate di Toko Astoria tidak stabil dan sangat fluktuatif tanpa program promosi rutin.
+              </div>
+              <div class="insight-action-box">
+                <div class="insight-action-label">Rekomendasi Aksi:</div>
+                <div class="insight-action-text">
+                  <strong>Flash Sale Harian ("Chocolate Hour"):</strong> Terapkan diskon 20% setiap pukul 14:00-16:00 (jam sepi) untuk menstimulasi walk-in customer.
+                </div>
+              </div>
+              <div class="insight-card-footer">
+                <span class="insight-target-label">Target Dampak:</span>
+                <span class="insight-target-val">Stabilisasi penjualan harian ± 15% fluktuasi</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <span class="insight-num">#2</span>
+                <span class="finding-tag finding-critical">Kritis</span>
+                <span class="insight-finding-title">Transaksi Terendah dari 3 Toko</span>
+              </div>
+              <div class="insight-finding-detail">
+                Total transaksi Astoria hanya 110, tertinggal jauh dari Hell's Kitchen (197) &amp; Lower Manhattan (180) akibat foot traffic dan brand awareness rendah.
+              </div>
+              <div class="insight-action-box">
+                <div class="insight-action-label">Rekomendasi Aksi:</div>
+                <div class="insight-action-text">
+                  <strong>Product Bundling Kopi + Cokelat:</strong> "Beli Kopi, Diskon Cokelat 50%". Manfaatkan tingginya penjualan kopi untuk mendongkrak cross-selling cokelat.
+                </div>
+              </div>
+              <div class="insight-card-footer">
+                <span class="insight-target-label">Target Dampak:</span>
+                <span class="insight-target-val">Peningkatan transaksi +40% (110 → 154 trx)</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <span class="insight-num">#3</span>
+                <span class="finding-tag finding-warning">Perhatian</span>
+                <span class="insight-finding-title">Preferensi Tertinggi Pada Kopi</span>
+              </div>
+              <div class="insight-finding-detail">
+                Pelanggan datang dominan (62%) untuk membeli kopi, sedangkan packaged chocolate belum diposisikan sebagai produk pendamping utama.
+              </div>
+              <div class="insight-action-box">
+                <div class="insight-action-label">Rekomendasi Aksi:</div>
+                <div class="insight-action-text">
+                  <strong>Strategic Placement &amp; Barista Upselling:</strong> Letakkan display cokelat di kasir/area tunggu pengambilan kopi dan latih barista menawarkan add-on.
+                </div>
+              </div>
+              <div class="insight-card-footer">
+                <span class="insight-target-label">Target Dampak:</span>
+                <span class="insight-target-val">Peningkatan impulse purchase +25%</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <span class="insight-num">#4</span>
+                <span class="finding-tag finding-info">Insight</span>
+                <span class="insight-finding-title">Harga Premium Chili Mayan</span>
+              </div>
+              <div class="insight-finding-detail">
+                Chili Mayan memiliki harga tertinggi ($13.33) namun volume transaksi rendah karena belum adanya edukasi citarasa dan keunggulan produk.
+              </div>
+              <div class="insight-action-box">
+                <div class="insight-action-label">Rekomendasi Aksi:</div>
+                <div class="insight-action-text">
+                  <strong>Tasting Program Mingguan:</strong> Sesi "Free Tasting" di akhir pekan untuk mengenalkan karakter rasa unik dan menjustifikasi nilai harga premium.
+                </div>
+              </div>
+              <div class="insight-card-footer">
+                <span class="insight-target-label">Target Dampak:</span>
+                <span class="insight-target-val">Peningkatan penjualan Chili Mayan +30%</span>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <span class="insight-num">#5</span>
+                <span class="finding-tag finding-info">Insight</span>
+                <span class="insight-finding-title">Tren Puncak di April - Mei</span>
+              </div>
+              <div class="insight-finding-detail">
+                Penjualan naik signifikan di April-Mei lalu merosot di Juni karena belum ada kampanye tematik musiman yang berkesinambungan.
+              </div>
+              <div class="insight-action-box">
+                <div class="insight-action-label">Rekomendasi Aksi:</div>
+                <div class="insight-action-text">
+                  <strong>Seasonal Campaign "Summer Fest":</strong> Luncurkan paket hemat musim panas dan packaging edisi khusus untuk menahan laju penurunan penjualan di Juni.
+                </div>
+              </div>
+              <div class="insight-card-footer">
+                <span class="insight-target-label">Target Dampak:</span>
+                <span class="insight-target-val">Mempertahankan momentum bulan puncak +15%</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

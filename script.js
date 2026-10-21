@@ -178,7 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (lineChartInstance) lineChartInstance.destroy();
 
-    const days = barData.map((d) => d["Day of Week"]);
+    const isMobile = window.innerWidth <= 768;
+    const days = barData.map((d) => isMobile ? d["Day of Week"].slice(0, 3) : d["Day of Week"]);
     const isSingleMonth = monthFilter !== "all";
     const monthText = MONTH_NAMES_SHORT[monthFilter] || "";
 
@@ -213,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       datasets = [
         {
-          label: `Astoria (Total: ${astoriaTrx})`,
+          label: isMobile ? "Astoria" : `Astoria (Total: ${astoriaTrx})`,
           data: astoriaData,
           borderColor: COLORS.orange,
           backgroundColor: COLORS.orangeLight,
@@ -226,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
           fill: false,
         },
         {
-          label: `Hell's Kitchen (Total: ${hellsTrx})`,
+          label: isMobile ? "Hell's Kitchen" : `Hell's Kitchen (Total: ${hellsTrx})`,
           data: hellsData,
           borderColor: COLORS.primary,
           backgroundColor: COLORS.greenLight,
@@ -239,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
           fill: false,
         },
         {
-          label: `Lower Manhattan (Total: ${lowerTrx})`,
+          label: isMobile ? "Lower Manhattan" : `Lower Manhattan (Total: ${lowerTrx})`,
           data: lowerData,
           borderColor: COLORS.blue,
           backgroundColor: COLORS.blueLight,
@@ -297,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         datasets = [
           {
-            label: isSingleMonth ? `Penjualan Astoria ${monthText} (Aktual)` : "Penjualan Astoria (Aktual)",
+            label: isMobile ? "Penjualan Aktual" : (isSingleMonth ? `Penjualan Astoria ${monthText} (Aktual)` : "Penjualan Astoria (Aktual)"),
             data: storeSales,
             borderColor: mainColor,
             backgroundColor: gradient,
@@ -311,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function () {
             order: 1,
           },
           {
-            label: `Target +40% (${targetDaily} unit/hari)`,
+            label: isMobile ? `Target +40% (${targetDaily})` : `Target +40% (${targetDaily} unit/hari)`,
             data: targetLine,
             borderColor: COLORS.red,
             borderWidth: 2,
@@ -361,10 +362,19 @@ document.addEventListener("DOMContentLoaded", function () {
         datasets: datasets,
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             position: "top",
-            align: "end",
+            align: isMobile ? "start" : "end",
+            labels: {
+              boxWidth: isMobile ? 8 : 10,
+              padding: isMobile ? 8 : 16,
+              font: {
+                size: isMobile ? 10 : 12,
+              },
+            },
           },
           tooltip: {
             backgroundColor: "rgba(26, 29, 33, 0.92)",
@@ -373,6 +383,10 @@ document.addEventListener("DOMContentLoaded", function () {
             padding: 12,
             cornerRadius: 8,
             callbacks: {
+              title: function (context) {
+                const idx = context[0].dataIndex;
+                return barData[idx] ? barData[idx]["Day of Week"] : context[0].label;
+              },
               label: function (context) {
                 return " " + context.dataset.label + ": " + context.parsed.y + " unit";
               },
@@ -382,7 +396,11 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           x: {
             grid: { display: false },
-            ticks: { font: { weight: "500" } },
+            ticks: {
+              font: { weight: "500", size: isMobile ? 10 : 12 },
+              autoSkip: true,
+              maxTicksLimit: isMobile ? 8 : 15,
+            },
           },
           y: {
             beginAtZero: true,
@@ -393,8 +411,9 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             ticks: {
               stepSize: maxY <= 10 ? 2 : 5,
+              font: { size: isMobile ? 10 : 12 },
               callback: function (value) {
-                return value + " unit";
+                return isMobile ? value : value + " unit";
               },
             },
           },
@@ -471,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
             borderColor: borderColors,
             borderWidth: 1.5,
             borderRadius: 6,
-            barThickness: 34,
+            barThickness: window.innerWidth <= 768 ? 22 : 34,
           },
         ],
       },
@@ -506,7 +525,7 @@ document.addEventListener("DOMContentLoaded", function () {
           y: {
             grid: { display: false },
             ticks: {
-              font: { weight: "600", size: 13 },
+              font: { weight: "600", size: window.innerWidth <= 768 ? 11 : 13 },
               color: function (context) {
                 const label = context.tick.label;
                 const activeStoreName = getStoreDisplayName(storeFilter);
@@ -608,8 +627,9 @@ document.addEventListener("DOMContentLoaded", function () {
           legend: {
             position: "bottom",
             labels: {
-              padding: 18,
-              font: { size: 12, weight: "500" },
+              padding: window.innerWidth <= 768 ? 10 : 18,
+              font: { size: window.innerWidth <= 768 ? 10.5 : 12, weight: "500" },
+              boxWidth: window.innerWidth <= 768 ? 8 : 10,
             },
           },
           tooltip: {
@@ -642,7 +662,7 @@ document.addEventListener("DOMContentLoaded", function () {
             drawCtx.fillStyle = COLORS.textSecondary;
             drawCtx.fillText(centerSubText, centerX, centerY - 12);
 
-            drawCtx.font = "800 22px 'Inter', sans-serif";
+            drawCtx.font = window.innerWidth <= 768 ? "800 18px 'Inter', sans-serif" : "800 22px 'Inter', sans-serif";
             drawCtx.fillStyle = COLORS.primary;
             drawCtx.fillText(centerMainText, centerX, centerY + 10);
 
@@ -909,6 +929,31 @@ document.addEventListener("DOMContentLoaded", function () {
     renderBarChart(salesData, activeFilters.month, activeFilters.store);
     renderDoughnutChart(activeFilters.category);
     updateScorecards(storeMonthly, salesData, activeFilters);
+    updateQuickFilterChips();
+  }
+
+  // ===== UPDATE MOBILE QUICK FILTER CHIPS =====
+  function updateQuickFilterChips() {
+    const chipStoreText = document.getElementById("chip-store-text");
+    const chipCatText = document.getElementById("chip-category-text");
+    const chipMonthText = document.getElementById("chip-month-text");
+
+    if (chipStoreText) {
+      chipStoreText.textContent = getStoreDisplayName(activeFilters.store);
+    }
+    if (chipCatText) {
+      const catMap = {
+        "packaged-chocolate": "Packaged Choc",
+        "coffee": "Coffee",
+        "tea": "Tea",
+        "bakery": "Bakery",
+        "all": "Semua Kategori"
+      };
+      chipCatText.textContent = catMap[activeFilters.category] || activeFilters.category;
+    }
+    if (chipMonthText) {
+      chipMonthText.textContent = MONTH_NAMES_SHORT[activeFilters.month] || "Semua Bulan";
+    }
   }
 
   // ===== FILTER CHANGE EVENT LISTENERS =====
@@ -939,6 +984,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== SIDEBAR TOGGLE & CLOSE (MOBILE) =====
   const sidebarToggle = document.getElementById("sidebar-toggle");
+  const btnHeaderFilter = document.getElementById("btn-header-filter");
+  const btnQuickFilterEdit = document.getElementById("btn-quick-filter-edit");
+  const chipStore = document.getElementById("chip-store");
+  const chipCategory = document.getElementById("chip-category");
+  const chipMonth = document.getElementById("chip-month");
+  const btnSidebarApply = document.getElementById("btn-sidebar-apply");
   const sidebarClose = document.getElementById("sidebar-close");
   const sidebar = document.getElementById("sidebar");
 
@@ -946,23 +997,36 @@ document.addEventListener("DOMContentLoaded", function () {
   overlay.className = "sidebar-overlay";
   document.body.appendChild(overlay);
 
-  if (sidebarToggle && sidebar) {
-    sidebarToggle.addEventListener("click", function () {
-      sidebar.classList.toggle("open");
-      overlay.classList.toggle("active");
-    });
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add("open");
+    overlay.classList.add("active");
   }
 
-  if (sidebarClose && sidebar) {
-    sidebarClose.addEventListener("click", function () {
-      sidebar.classList.remove("open");
-      overlay.classList.remove("active");
-    });
-  }
-
-  overlay.addEventListener("click", function () {
+  function closeSidebar() {
     if (sidebar) sidebar.classList.remove("open");
     overlay.classList.remove("active");
+  }
+
+  if (sidebarToggle) sidebarToggle.addEventListener("click", openSidebar);
+  if (btnHeaderFilter) btnHeaderFilter.addEventListener("click", openSidebar);
+  if (btnQuickFilterEdit) btnQuickFilterEdit.addEventListener("click", openSidebar);
+  if (chipStore) chipStore.addEventListener("click", openSidebar);
+  if (chipCategory) chipCategory.addEventListener("click", openSidebar);
+  if (chipMonth) chipMonth.addEventListener("click", openSidebar);
+
+  if (sidebarClose) sidebarClose.addEventListener("click", closeSidebar);
+  if (btnSidebarApply) btnSidebarApply.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  // Resize listener to adapt chart layout when rotating mobile screen
+  let resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.dashboardData) {
+        applyFilters();
+      }
+    }, 250);
   });
 
   // ===== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS =====
